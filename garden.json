@@ -1,0 +1,103 @@
+{
+    "Settings": {
+        "Apple": {
+			"name": "Яблоня",
+            "item": {
+                "max": 50,
+                "min": 40
+            },
+            "weight": {
+                "max": 180,
+                "min": 150
+            }
+        },
+        "Pear": {
+			"name": "Груша",
+            "item": {
+                "max": 20,
+                "min": 0
+            },
+            "weight": {
+                "max": 170,
+                "min": 130
+            }
+        }
+    },
+    "Tree": [
+        {
+            "type": "Apple"
+        },
+        {
+            "type": "Apple"
+        },
+        {
+            "type": "Apple"
+        },
+        {
+            "type": "Apple"
+        },
+        {
+            "type": "Apple"
+        },
+        {
+            "type": "Apple"
+        },
+        {
+            "type": "Apple"
+        },
+        {
+            "type": "Apple"
+        },
+        {
+            "type": "Apple"
+        },
+        {
+            "type": "Apple"
+        },
+        {
+            "type": "Pear"
+        },
+        {
+            "type": "Pear"
+        },
+        {
+            "type": "Pear"
+        },
+        {
+            "type": "Pear"
+        },
+        {
+            "type": "Pear"
+        },
+        {
+            "type": "Pear"
+        },
+        {
+            "type": "Pear"
+        },
+        {
+            "type": "Pear"
+        },
+        {
+            "type": "Pear"
+        },
+        {
+            "type": "Pear"
+        },
+        {
+            "type": "Pear"
+        },
+        {
+            "type": "Pear"
+        },
+        {
+            "type": "Pear"
+        },
+        {
+            "type": "Pear"
+        },
+        {
+            "type": "Pear"
+        }
+    ]
+}
