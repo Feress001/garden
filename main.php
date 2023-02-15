@@ -29,17 +29,21 @@ class GardenClass
 	public function GetItems()
 	{
 		for($x = 0;$x < count($this->Garden['Tree']);$x++){
+    if(!$this->Garden['Settings'][$this->Garden['Tree'][$x]['type']]){echo "Неизвестное дерево " . $this->Garden['Settings'][$this->Garden['Tree'][$x]['type']] . "\n";continue;}
+
 			// Количество плодов вычисляется из Settings для каждого дерева отельно
 			$item = rand($this->Garden['Settings'][$this->Garden['Tree'][$x]['type']]['item']['min'], $this->Garden['Settings'][$this->Garden['Tree'][$x]['type']]['item']['max']);
 			
 			// Для интереса сделаем реально: У каждого плода свой вес
-			for($z = 0; $z < $item;$z++){ $weight = rand($this->Garden['Settings'][$this->Garden['Tree'][$x]['type']]['weight']['min'], $this->Garden['Settings'][$this->Garden['Tree'][$x]['type']]['weight']['max']); }
+			for($z = 0; $z < $item;$z++){ $weight = rand($this->Garden['Settings'][$this->Garden['Tree'][$x]['type']]['weight']['min'], $this->Garden['Settings'][$this->Garden['Tree'][$x]['type']]['weight']['max']); 
+$db['total']['weight'] = ($db['total']['weight'] ?? 0) + $weight;
+$db['Collector'][$this->Garden['Tree'][$x]['type']]['weight'] = ($db['Collector'][$this->Garden['Tree'][$x]['type']]['weight'] ?? 0) + $weight;
+}
 			
 			$db['Collector'][$this->Garden['Tree'][$x]['type']]['item'] = ($db['Collector'][$this->Garden['Tree'][$x]['type']]['item'] ?? 0) + $item;
 			$db['Collector'][$this->Garden['Tree'][$x]['type']]['weight'] = ($db['Collector'][$this->Garden['Tree'][$x]['type']]['weight'] ?? 0) + $weight;
 			$db['total']['item'] = ($db['total']['item'] ?? 0) + $item;
-			$db['total']['weight'] = ($db['total']['weight'] ?? 0) + $weight;
-			echo "Дерево " . ($x+1) . " - " . $this->Garden['Settings'][$this->Garden['Tree'][$x]['type']]['name'] . ": Плодов собрано: " . $item . " шт. | Общий вес плодов: " . $weight . " гр.\n";
+			echo "Дерево " . ($x+1) . " - " . $this->Garden['Settings'][$this->Garden['Tree'][$x]['type']]['name'] . ": Плодов собрано: " . $item . " шт. | Общий вес плодов: " . $db['Collector'][$this->Garden['Tree'][$x]['type']]['weight'] . " гр.\n";
 		}
 		
 		echo "-------------------------------------------------\n";
